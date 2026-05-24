@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/index.css">
-</head>
-<body>
-    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Control Estadístico del Hogar</title>
+        <link rel="stylesheet" href="assets/css/index.css">
+    </head>
+    <body>
+        
+        <div class="contenedor">
+            <!-- Título principal -->
+            <header>
+                <h1>📊 Control Estadístico del Hogar</h1>
+                <p>Registro y análisis de consumos</p>
+            </header>
 
-    <script src="assets/js/index.js"></script>
-</body>
+            <!-- Formulario -->
+            <section class="formulario">
+                <h2>Registrar consumo</h2>
+
+                <label for="fecha">Fecha</label>
+                <input type="date" id="fecha">
+
+                <label for="tipo">Tipo de consumo</label>
+                <select id="tipo">
+                    <option>Luz</option>
+                    <option>Agua</option>
+                    <option>Internet</option>
+                    <option>Gastos personales</option>
+                </select>
+
+                <label for="valor">Valor ($)</label>
+                <input type="number" id="valor" placeholder="Ej: 35.50">
+
+                <button>Guardar registro</button>
+            </section>
+
+            <!-- Tabla -->
+            <section class="tabla-registros">
+                <h2>Historial de registros</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                            <th>Observación</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>22/05/2026</td>
+                            <td>Luz</td>
+                            <td>$35</td>
+                            <td>Consumo normal</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Estadísticas -->
+            <section class="estadisticas">
+                <h2>Estadísticas</h2>
+
+                <div class="cards">
+                    <div class="card">Media: --</div>
+                    <div class="card">Mediana: --</div>
+                    <div class="card">Moda: --</div>
+                    <div class="card">Máximo: --</div>
+                    <div class="card">Mínimo: --</div>
+                    <div class="card">Rango: --</div>
+                </div>
+            </section>
+        </div>
+
+        <script src="assets/js/index.js"></script>
+    </body>
 </html>

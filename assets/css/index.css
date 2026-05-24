@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+    padding: 30px;
+}
+
+.contenedor{
+    max-width: 1000px;
+    margin: auto;
+}
+
+header{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1{
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+section{
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+h2{
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+label{
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+textarea{
+    resize: none;
+    height: 80px;
+}
+
+button{
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #357abd;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th{
+    background-color: #eaf2ff;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 15px;
+}
+
+.card{
+    background-color: #eef6ff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
