@@ -29,6 +29,27 @@
                     <option>Internet</option>
                     <option>Gastos personales</option>
                 </select>
+                <!-- Campos adicionales para gastos personales -->
+                <div id="contenedorTipoGasto" style="display: none;">
+                    <label for="tipoGasto">Tipo de gasto</label>
+                    <select id="tipoGasto">
+                        <option>Ropa</option>
+                        <option>Comida</option>
+                        <option>Transporte</option>
+                        <option>Estudios</option>
+                        <option>entretenimiento</option>
+                    </select>
+                </div>
+                <!-- Campos adicionales para Comida y Estudios -->
+                <div id="contenedorFrecuencia" style="display: none;">
+                    <label for="frecuencia">Frecuencia</label>
+                    <select id="frecuencia">
+                        <option>Diario</option>
+                        <option>Semanal</option>
+                        <option>Mensual</option>
+                    </select>
+
+                </div>
 
                 <label for="valor">Valor ($)</label>
                 <input type="number" id="valor" placeholder="Ej: 35.50">
@@ -49,13 +70,14 @@
                             <th>Observación</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody id="cuerpoTabla">
+                        <!--<tr>
                             <td>22/05/2026</td>
                             <td>Luz</td>
                             <td>$35.00</td>
                             <td>Consumo normal</td>
-                        </tr>
+                        </tr>-->
+                        <!-- Más filas se agregarán dinámicamente aquí -->
                     </tbody>
                 </table>
             </section>
