@@ -1,0 +1,131 @@
+1. Estructura del proyecto
+HTML
+ Crear index.html✅
+ Crear estructura principal de la página✅
+ Crear encabezado del sistema✅
+ Crear formulario de registro✅
+ Agregar campo Fecha✅
+ Agregar selector de Categoría✅
+ Luz✅
+ Agua✅
+ Internet✅
+ Gastos personales✅
+ Crear campo Valor✅
+ Crear botón Guardar registro✅
+ Crear tabla de historial✅
+ Crear sección de estadísticas✅
+ Crear sección de Observaciones automáticas
+ Agregar campo dinámico Tipo de gasto (si es gastos personales)
+ Agregar campo dinámico Frecuencia (solo si es comida)
+2. Diseño CSS
+ Reset general (margin, padding, box-sizing)✅
+ Fondo principal✅
+ Contenedor centrado✅
+ Diseño del header✅
+ Diseño del formulario✅
+ Diseño de inputs y select✅
+ Diseño del botón✅
+ Efecto hover del botón✅
+ Diseño de tabla✅
+ Diseño de tarjetas estadísticas✅
+ Uso de CSS Grid para estadísticas✅
+ Mejorar responsive móvil
+ Mejorar diseño visual final
+ Agregar estilo para observaciones automáticas
+ Agregar estilo para alertas
+3. JavaScript — Registro de datos
+ Capturar botón guardar
+ Capturar fecha
+ Capturar categoría
+ Capturar valor
+ Validar campos vacíos
+ Crear objeto del registro
+ Guardar en un array
+ Mostrar en consola
+ Limpiar formulario después de guardar
+4. JavaScript — Tabla de historial
+ Seleccionar tbody
+ Crear filas dinámicamente
+ Mostrar fecha
+ Mostrar categoría
+ Mostrar valor
+ Mostrar observación automática
+ Actualizar tabla automáticamente
+ Botón eliminar registro (opcional)
+ Botón editar registro (opcional)
+5. JavaScript — Campos dinámicos
+Si categoría = Gastos personales
+ Mostrar selector Tipo de gasto
+
+Opciones:
+
+ Comida
+ Ropa
+ Transporte
+ Estudios
+ Entretenimiento
+Si tipo = Comida
+
+Mostrar frecuencia:
+
+ Diario
+ Semanal
+ Mensual
+Si categoría = Luz / Agua / Internet
+ Asignar frecuencia Mensual automática
+6. JavaScript — localStorage
+ Guardar registros en localStorage
+ Cargar registros al abrir la página
+ Mostrar datos guardados automáticamente
+ Actualizar localStorage al eliminar registros
+7. Estadísticas automáticas
+ Calcular Media
+ Calcular Mediana
+ Calcular Moda
+ Calcular Máximo
+ Calcular Mínimo
+ Calcular Rango
+ Mostrar resultados en tarjetas
+8. Observaciones automáticas del sistema
+Variación pequeña
+ Mostrar:
+✓ Consumo dentro del rango habitual
+Variación moderada
+ Mostrar:
+⚠ Incremento moderado detectado
+Variación alta
+ Mostrar:
+🚨 Consumo fuera del rango esperado
+Gasto en comida
+ Detectar aumento diario
+ Detectar aumento semanal
+ Detectar aumento mensual
+9. Gráficas automáticas
+Gráfica de barras 📊
+ Crear gráfica de barras
+ Mostrar consumo por categoría
+ Actualizar automáticamente
+ Mostrar etiquetas y valores
+Gráfica lineal 📈
+ Crear gráfica lineal
+ Usar fecha como eje X
+ Usar valor como eje Y
+ Mostrar evolución del consumo
+ Actualizar automáticamente
+Gráfica circular 🥧
+ Crear gráfica circular
+ Calcular porcentaje por categoría
+ Mostrar leyenda
+ Actualizar automáticamente
+Integrar Chart.js
+ Agregar CDN de Chart.js
+ Crear canvas para gráficas
+10. Pruebas
+ Probar guardar registro
+ Probar refrescar página
+ Probar localStorage
+ Probar estadísticas
+ Probar observaciones automáticas
+ Probar categorías dinámicas
+ Probar gráficas
+ Probar responsive móvil
