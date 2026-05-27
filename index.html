@@ -54,19 +54,41 @@
                 <label for="valor">Valor ($)</label>
                 <input type="number" id="valor" placeholder="Ej: 35.50">
 
-                <button>Guardar registro</button>
+                <button id="btnGuardar">Guardar registro</button>
             </section>
 
             <!-- Tabla -->
             <section class="tabla-registros">
                 <h2>Historial de registros</h2>
+                <h3>Filtrar registros</h3>
+
+                <label for="filtroTipo">Tipo</label>
+                <select id="filtroTipo">
+                    <option value="Todos">Todos</option>
+                    <option value="Luz">Luz</option>
+                    <option value="Agua">Agua</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Gastos personales">Gastos personales</option>
+                </select>
+
+                <div id="contenedorFiltroGasto" style="display: none;">
+                    <label for="filtroTipoGasto">Tipo de gasto</label>
+                    <select id="filtroTipoGasto">
+                        <option value="Todos">Todos</option>
+                        <option value="Comida">Comida</option>
+                        <option value="Ropa">Ropa</option>
+                        <option value="Estudios">Estudios</option>
+                    </select>
+                </div>
 
                 <table>
                     <thead>
                         <tr>
                             <th>Fecha</th>
                             <th>Tipo</th>
+                            <th>Tipo de gasto</th>
                             <th>Valor</th>
+                            <th>Frecuencia</th>
                             <th>Observación</th>
                         </tr>
                     </thead>
@@ -87,12 +109,14 @@
                 <h2>Estadísticas</h2>
 
                 <div class="cards">
-                    <div class="card">Media: --</div>
-                    <div class="card">Mediana: --</div>
-                    <div class="card">Moda: --</div>
-                    <div class="card">Máximo: --</div>
-                    <div class="card">Mínimo: --</div>
-                    <div class="card">Rango: --</div>
+                    <div class="card" id="media">Media: --</div>
+                    <div class="card" id="mediana">Mediana: --</div>
+                    <div class="card" id="moda">Moda: --</div>
+                    <div class="card" id="maximo">Máximo: --</div>
+                    <div class="card" id="minimo">Mínimo: --</div>
+                    <div class="card" id="rango">Rango: --</div>
+                    <div class="card" id="varianza">Varianza: --</div>
+                    <div class="card" id="desviacion">Desv. estándar: --</div>
                 </div>
             </section>
         </div>
