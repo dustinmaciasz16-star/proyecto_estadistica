@@ -32,19 +32,16 @@ const tablaCuerpo = document.getElementById("cuerpoTabla");
 let registros = [];
 let frecuencia = "Mensual";
 
-
 // =============================
 // GUARDAR GASTO
 // =============================
 
 function agregarGasto() {
-
     let fecha = document.getElementById("fecha").value;
     let valor = document.getElementById("valor").value;
 
     let tipoSeleccionado = tipo.value;
     let tipoGastoSeleccionado = tipoGasto.value;
-
     let frecuenciaGasto = frecuencia;
 
     // Si es comida o estudios,
@@ -79,13 +76,10 @@ function agregarGasto() {
 
     // Guardar
     registros.push(registro);
-
     console.log(registros);
 
     calcularEstadisticas();
-    
     pintarTabla();
-
     limpiarFormulario();
 }
 
@@ -163,7 +157,6 @@ tipo.addEventListener("change", function () {
 // =============================
 
 function mostrarOcultar(seleccion, valores, contenedor) {
-
     if (valores.includes(seleccion.value)) {
         contenedor.style.display = "block";
     } else {
@@ -171,14 +164,11 @@ function mostrarOcultar(seleccion, valores, contenedor) {
     }
 
 }
-
-
 // =============================
 // ACTIVAR EVENTOS DINÁMICOS
 // =============================
 
 function activarMostrarOcultar(seleccion, valores, contenedor) {
-
     seleccion.addEventListener("change", function () {
 
         mostrarOcultar(
@@ -186,11 +176,8 @@ function activarMostrarOcultar(seleccion, valores, contenedor) {
             valores,
             contenedor
         );
-
     });
-
 }
-
 // =============================
 // GENERAR OBSERVACIÓN AUTOMÁTICA
 // =============================
@@ -436,7 +423,6 @@ function calcularEstadisticas() {
         desviacion.toFixed(2);
 }
 
-
 // =============================
 // LIMPIAR FORMULARIO
 // =============================
@@ -532,17 +518,14 @@ mostrarOcultar(
     ["Gastos personales"],
     contenedorTipoGasto
 );
-
 mostrarOcultar(
     tipoGasto,
     ["Comida", "Estudios"],
     contenedorFrecuencia
 );
-
 mostrarOcultar(
     filtroTipo,
     ["Gastos personales"],
     contenedorFiltroGasto
 );
-
 pintarTabla();
