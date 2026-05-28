@@ -1,130 +1,302 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inventario Estadístico del Hogar</title>
-        <link rel="stylesheet" href="assets/css/index.css">
-    </head>
-    <body>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Estadístico del Hogar</title>
 
-        <div class="contenedor">
-            <!-- Título principal -->
-            <header>
-                <h1>📊 Control Estadístico del Hogar</h1>
-                <p>Registro y análisis de consumos</p>
-            </header>
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
 
-            <!-- Formulario -->
-            <section class="formulario">
-                <h2>Registrar consumo</h2>
+    <div class="container">
 
-                <label for="fecha">Fecha</label>
-                <input type="date" id="fecha">
+        <div class="dashboard">
 
-                <label for="tipo">Tipo de consumo</label>
-                <select id="tipo">
-                    <option>Luz</option>
-                    <option>Agua</option>
-                    <option>Internet</option>
-                    <option>Gastos personales</option>
-                </select>
-                <!-- Campos adicionales para gastos personales -->
-                <div id="contenedorTipoGasto" style="display: none;">
-                    <label for="tipoGasto">Tipo de gasto</label>
-                    <select id="tipoGasto">
-                        <option>Ropa</option>
-                        <option>Comida</option>
-                        <option>Transporte</option>
-                        <option>Estudios</option>
-                        <option>entretenimiento</option>
-                    </select>
-                </div>
-                <!-- Campos adicionales para Comida y Estudios -->
-                <div id="contenedorFrecuencia" style="display: none;">
-                    <label for="frecuencia">Frecuencia</label>
-                    <select id="frecuencia">
-                        <option>Diario</option>
-                        <option>Semanal</option>
-                        <option>Mensual</option>
-                    </select>
+            <!-- ========================= -->
+            <!-- SIDEBAR -->
+            <!-- ========================= -->
 
-                </div>
+            <aside class="sidebar">
 
-                <label for="valor">Valor ($)</label>
-                <input type="number" id="valor" placeholder="Ej: 35.50">
+                <h2>📊 Panel</h2>
 
-                <button id="btnGuardar">Guardar registro</button>
-            </section>
+                <button class="btnMenu" onclick="mostrarSeccion('formulario')">
+                    📝 Formulario
+                </button>
 
-            <!-- Tabla -->
-            <section class="tabla-registros">
-                <h2>Historial de registros</h2>
-                <h3>Filtrar registros</h3>
+                <button class="btnMenu" onclick="mostrarSeccion('historial')">
+                    📋 Historial
+                </button>
 
-                <label for="filtroTipo">Tipo</label>
-                <select id="filtroTipo">
-                    <option value="Todos">Todos</option>
-                    <option value="Luz">Luz</option>
-                    <option value="Agua">Agua</option>
-                    <option value="Internet">Internet</option>
-                    <option value="Gastos personales">Gastos personales</option>
-                </select>
+                <button class="btnMenu" onclick="mostrarSeccion('estadisticas')">
+                    📈 Estadísticas
+                </button>
 
-                <div id="contenedorFiltroGasto" style="display: none;">
-                    <label for="filtroTipoGasto">Tipo de gasto</label>
-                    <select id="filtroTipoGasto">
-                        <option value="Todos">Todos</option>
-                        <option value="Comida">Comida</option>
-                        <option value="Ropa">Ropa</option>
-                        <option value="Estudios">Estudios</option>
-                    </select>
-                </div>
+                <button class="btnMenu" onclick="mostrarSeccion('graficas')">
+                    📊 Gráficas
+                </button>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Fecha</th>
-                            <th>Tipo</th>
-                            <th>Tipo de gasto</th>
-                            <th>Valor</th>
-                            <th>Frecuencia</th>
-                            <th>Observación</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cuerpoTabla">
-                        <!--<tr>
-                            <td>22/05/2026</td>
-                            <td>Luz</td>
-                            <td>$35.00</td>
-                            <td>Consumo normal</td>
-                        </tr>-->
-                        <!-- Más filas se agregarán dinámicamente aquí -->
-                    </tbody>
-                </table>
-            </section>
+            </aside>
 
-            <!-- Estadísticas -->
-            <section class="estadisticas">
-                <h2>Estadísticas</h2>
+            <!-- ========================= -->
+            <!-- CONTENIDO -->
+            <!-- ========================= -->
 
-                <div class="cards">
-                    <div class="card" id="media">Media: --</div>
-                    <div class="card" id="mediana">Mediana: --</div>
-                    <div class="card" id="moda">Moda: --</div>
-                    <div class="card" id="maximo">Máximo: --</div>
-                    <div class="card" id="minimo">Mínimo: --</div>
-                    <div class="card" id="rango">Rango: --</div>
-                    <div class="card" id="varianza">Varianza: --</div>
-                    <div class="card" id="desviacion">Desv. estándar: --</div>
-                </div>
-            </section>
+            <main class="contenido">
+
+                <!-- ========================= -->
+                <!-- FORMULARIO -->
+                <!-- ========================= -->
+
+                <section id="formulario" class="seccion activa">
+
+                    <header>
+
+                        <h1>📊 Control Estadístico del Hogar</h1>
+
+                        <p>
+                            Registro y análisis de consumos
+                        </p>
+
+                    </header>
+
+                    <section class="card-general">
+
+                        <h2>Registrar consumo</h2>
+
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha">
+
+                        <label for="tipo">Tipo de consumo</label>
+
+                        <select id="tipo">
+
+                            <option>Luz</option>
+                            <option>Agua</option>
+                            <option>Internet</option>
+                            <option>Gastos personales</option>
+
+                        </select>
+
+                        <!-- TIPO GASTO -->
+
+                        <div id="contenedorTipoGasto" style="display:none;">
+
+                            <label for="tipoGasto">
+                                Tipo de gasto
+                            </label>
+
+                            <select id="tipoGasto">
+
+                                <option>Ropa</option>
+                                <option>Comida</option>
+                                <option>Transporte</option>
+                                <option>Estudios</option>
+                                <option>Entretenimiento</option>
+
+                            </select>
+
+                        </div>
+
+                        <!-- FRECUENCIA -->
+
+                        <div id="contenedorFrecuencia" style="display:none;">
+
+                            <label for="frecuencia">
+                                Frecuencia
+                            </label>
+
+                            <select id="frecuencia">
+
+                                <option>Diario</option>
+                                <option>Semanal</option>
+                                <option>Mensual</option>
+
+                            </select>
+
+                        </div>
+
+                        <label for="valor">Valor ($)</label>
+
+                        <input
+                            type="number"
+                            id="valor"
+                            placeholder="Ej: 35.50"
+                        >
+
+                        <button id="btnGuardar">
+                            Guardar registro
+                        </button>
+
+                    </section>
+
+                </section>
+
+                <!-- ========================= -->
+                <!-- HISTORIAL -->
+                <!-- ========================= -->
+
+                <section id="historial" class="seccion">
+
+                    <section class="card-general">
+
+                        <h2>📋 Historial de registros</h2>
+
+                        <h3>Filtrar registros</h3>
+
+                        <label for="filtroTipo">
+                            Tipo
+                        </label>
+
+                        <select id="filtroTipo">
+
+                            <option value="Todos">Todos</option>
+                            <option value="Luz">Luz</option>
+                            <option value="Agua">Agua</option>
+                            <option value="Internet">Internet</option>
+                            <option value="Gastos personales">
+                                Gastos personales
+                            </option>
+
+                        </select>
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>Fecha</th>
+                                    <th>Tipo</th>
+                                    <th>Tipo gasto</th>
+                                    <th>Valor</th>
+                                    <th>Frecuencia</th>
+
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="cuerpoTabla">
+
+                            </tbody>
+
+                        </table>
+
+                    </section>
+
+                </section>
+
+                <!-- ========================= -->
+                <!-- ESTADISTICAS -->
+                <!-- ========================= -->
+
+                <section id="estadisticas" class="seccion">
+
+                    <section class="card-general">
+
+                        <h2>📈 Estadísticas</h2>
+
+                        <div class="cards">
+
+                            <div class="card" id="media">
+                                Media: --
+                            </div>
+
+                            <div class="card" id="mediana">
+                                Mediana: --
+                            </div>
+
+                            <div class="card" id="moda">
+                                Moda: --
+                            </div>
+
+                            <div class="card" id="maximo">
+                                Máximo: --
+                            </div>
+
+                            <div class="card" id="minimo">
+                                Mínimo: --
+                            </div>
+
+                            <div class="card" id="rango">
+                                Rango: --
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </section>
+
+                <!-- ========================= -->
+                <!-- GRAFICAS -->
+                <!-- ========================= -->
+
+                <section id="graficas" class="seccion">
+
+                    <section class="card-general">
+
+                        <h2>📊 Gráficas</h2>
+
+                        <canvas id="miGrafica"></canvas>
+
+                    </section>
+
+                </section>
+
+                <!-- ========================= -->
+                <!-- FOOTER -->
+                <!-- ========================= -->
+
+                <footer>
+
+                    <div class="footer-contenido">
+
+                        <h3>
+                            📊 Control Estadístico del Hogar
+                        </h3>
+
+                        <p>
+                            Sistema de registro y análisis
+                            de consumos del hogar.
+                        </p>
+
+                        <div class="footer-links">
+
+                            <a href="#">
+                                Inicio
+                            </a>
+
+                            <a href="#">
+                                Historial
+                            </a>
+
+                            <a href="#">
+                                Estadísticas
+                            </a>
+
+                            <a href="#">
+                                Gráficas
+                            </a>
+
+                        </div>
+
+                        <p class="copy">
+                            &copy; 2026 - Todos los derechos reservados
+                        </p>
+
+                    </div>
+
+                </footer>
+
+            </main>
+
         </div>
 
-        <footer>
-            <p>&copy; 2026 Inventario Estadístico del Hogar</p>
-        </footer>
+    </div>
 
-        <script src="assets/js/index.js"></script>
-    </body>
+    <script src="assets/js/index.js"></script>
+
+</body>
 </html>

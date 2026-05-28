@@ -32,6 +32,24 @@ const tablaCuerpo = document.getElementById("cuerpoTabla");
 let registros = [];
 let frecuencia = "Mensual";
 
+// =============================
+// MOSTRAR SECCIÓN
+// =============================
+
+function mostrarSeccion(id){
+
+    const secciones = document.querySelectorAll(".seccion");
+
+    secciones.forEach(seccion => {
+        seccion.classList.remove("activa");
+    });
+
+    document.getElementById(id).classList.add("activa");
+
+}
+
+
+
 
 // =============================
 // GUARDAR GASTO
