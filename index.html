@@ -1,378 +1,336 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control Estadístico del Hogar</title>
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Control Estadístico del Hogar</title>
+            <link rel="stylesheet" href="assets/css/index.css">
+    </head>
+        <body>
+            <div class="container">
+                <div class="dashboard">
 
-    <link rel="stylesheet" href="assets/css/index.css">
-</head>
-<body>
+                    <!-- ========================= -->
+                    <!-- SIDEBAR -->
+                    <!-- ========================= -->
 
-    <div class="container">
+                    <aside class="sidebar">
+                        <h2>📊 Panel</h2>
 
-        <div class="dashboard">
-
-            <!-- ========================= -->
-            <!-- SIDEBAR -->
-            <!-- ========================= -->
-
-            <aside class="sidebar">
-
-                <h2>📊 Panel</h2>
-
-                <button class="btnMenu" onclick="mostrarSeccion('formulario')">
-                    📝 Formulario
-                </button>
-
-                <button class="btnMenu" onclick="mostrarSeccion('historial')">
-                    📋 Historial
-                </button>
-
-                <button class="btnMenu" onclick="mostrarSeccion('estadisticas')">
-                    📈 Estadísticas
-                </button>
-
-                <button class="btnMenu" onclick="mostrarSeccion('graficas')">
-                    📊 Gráficas
-                </button>
-
-                <button class="btnMenu" onclick="mostrarSeccion('teoria')">
-                    teoria
-                </button>
-
-                <button class="btnMenu" onclick="mostrarSeccion('quiz')">
-                    quiz
-                </button>
-
-            </aside>
-
-            <!-- ========================= -->
-            <!-- CONTENIDO -->
-            <!-- ========================= -->
-
-            <main class="contenido">
-
-                <!-- ========================= -->
-                <!-- FORMULARIO -->
-                <!-- ========================= -->
-
-                <section id="formulario" class="seccion activa">
-
-                    <header>
-
-                        <h1>📊 Control Estadístico del Hogar</h1>
-
-                        <p>
-                            Registro y análisis de consumos
-                        </p>
-
-                    </header>
-                    <section class="card-general">
-                        <h2>Registrar consumo</h2>
-
-                        <label for="fecha">Fecha</label>
-                        <input type="date" id="fecha">
-
-                        <label for="tipo">Tipo de consumo</label>
-
-                        <select id="tipo">
-                            <option>Luz</option>
-                            <option>Agua</option>
-                            <option>Internet</option>
-                            <option>Gastos personales</option>
-
-                        </select>
-
-                        <!-- TIPO GASTO -->
-                        <div id="contenedorTipoGasto" style="display:none;">
-
-                            <label for="tipoGasto">
-                                Tipo de gasto
-                            </label>
-
-                            <select id="tipoGasto">
-                                <option>Ropa</option>
-                                <option>Comida</option>
-                                <option>Transporte</option>
-                                <option>Estudios</option>
-                                <option>Entretenimiento</option>
-                            </select>
-
-                        </div>
-
-                        <!-- FRECUENCIA -->
-
-                        <div id="contenedorFrecuencia" style="display:none;">
-
-                            <label for="frecuencia">
-                                Frecuencia
-                            </label>
-
-                            <select id="frecuencia">
-
-                                <option>Diario</option>
-                                <option>Semanal</option>
-                                <option>Mensual</option>
-
-                            </select>
-
-                        </div>
-
-                        <label for="valor">Valor ($)</label>
-
-                        <input
-                            type="number"
-                            id="valor"
-                            placeholder="Ej: 35.50"
-                        >
-
-                        <button id="btnGuardar">
-                            Guardar registro
+                        <button class="btnMenu" onclick="mostrarSeccion('formulario')">
+                            📝 Formulario
                         </button>
 
-                    </section>
+                        <button class="btnMenu" onclick="mostrarSeccion('historial')">
+                            📋 Historial
+                        </button>
 
-                </section>
+                        <button class="btnMenu" onclick="mostrarSeccion('estadisticas')">
+                            📈 Estadísticas
+                        </button>
 
-                <!-- ========================= -->
-                <!-- HISTORIAL -->
-                <!-- ========================= -->
+                        <button class="btnMenu" onclick="mostrarSeccion('graficas')">
+                            📊 Gráficas
+                        </button>
 
-                <section id="historial" class="seccion">
+                        <button class="btnMenu" onclick="mostrarSeccion('teoria')">
+                            teoria
+                        </button>
 
-                    <section class="card-general">
+                        <button class="btnMenu" onclick="mostrarSeccion('quiz')">
+                            quiz
+                        </button>
 
-                        <h2>📋 Historial de registros</h2>
+                    </aside>
+                    <!-- ========================= -->
+                    <!-- CONTENIDO -->
+                    <!-- ========================= -->
 
-                        <h3>Filtrar registros</h3>
+                    <main class="contenido">
 
-                        <label for="filtroTipo">
-                            Tipo
-                        </label>
+                        <!-- ========================= -->
+                        <!-- FORMULARIO -->
+                        <!-- ========================= -->
 
-                        <select id="filtroTipo">
+                        <section id="formulario" class="seccion activa">
+                            <header>
+                                <h1>📊 Control Estadístico del Hogar</h1>
+                                <p>Registro y análisis de consumos</p>
+                            </header>
 
-                            <option value="Todos">Todos</option>
-                            <option value="Luz">Luz</option>
-                            <option value="Agua">Agua</option>
-                            <option value="Internet">Internet</option>
-                            <option value="Gastos personales">
-                                Gastos personales
-                            </option>
+                            <section class="card-general">
+                                <h2>Registrar consumo</h2>
 
-                        </select>
+                                <label for="fecha">Fecha</label>
+                                <input type="date" id="fecha">
 
-                        <div id="contenedorFiltroGasto" style="display:none;">
+                                <label for="tipo">Tipo de consumo</label>
 
-                            <label for="filtroTipoGasto">
-                                Tipo de gasto
+                                <select id="tipo">
+                                    <option>Luz</option>
+                                    <option>Agua</option>
+                                    <option>Internet</option>
+                                    <option>Gastos personales</option>
+                                </select>
+
+                                <!-- TIPO GASTO -->
+                                <div id="contenedorTipoGasto" style="display:none;">
+
+                                    <label for="tipoGasto">
+                                        Tipo de gasto
+                                    </label>
+
+                                    <select id="tipoGasto">
+                                        <option>Ropa</option>
+                                        <option>Comida</option>
+                                        <option>Transporte</option>
+                                        <option>Estudios</option>
+                                        <option>Entretenimiento</option>
+                                    </select>
+
+                                </div>
+
+                                <!-- FRECUENCIA -->
+
+                                <div id="contenedorFrecuencia" style="display:none;">
+
+                                    <label for="frecuencia">
+                                        Frecuencia
+                                    </label>
+
+                                    <select id="frecuencia">
+                                        <option>Diario</option>
+                                        <option>Semanal</option>
+                                        <option>Mensual</option>
+                                    </select>
+
+                                </div>
+
+                                <label for="valor">Valor ($)</label>
+
+                                <input
+                                    type="number"
+                                    id="valor"
+                                    placeholder="Ej: 35.50"
+                                >
+
+                                <button id="btnGuardar">
+                                    Guardar registro
+                                </button>
+
+                            </section>
+
+                        </section>
+
+                        <!-- ========================= -->
+                        <!-- HISTORIAL -->
+                        <!-- ========================= -->
+
+                        <section id="historial" class="seccion">
+
+                            <section class="card-general">
+                                <h2>📋 Historial de registros</h2>
+                                <h3>Filtrar registros</h3>
+
+                                <label for="filtroTipo">
+                                    Tipo
+                                </label>
+
+                                <select id="filtroTipo">
+                                    <option value="Todos">Todos</option>
+                                    <option value="Luz">Luz</option>
+                                    <option value="Agua">Agua</option>
+                                    <option value="Internet">Internet</option>
+                                    <option value="Gastos personales">
+                                        Gastos personales
+                                    </option>
+                                </select>
+
+                                <div id="contenedorFiltroGasto" style="display:none;">
+
+                                    <label for="filtroTipoGasto">
+                                        Tipo de gasto
+                                    </label>
+
+                                    <select id="filtroTipoGasto">
+                                        <option value="Todos">Todos</option>
+                                        <option value="Ropa">Ropa</option>
+                                        <option value="Comida">Comida</option>
+                                        <option value="Transporte">Transporte</option>
+                                        <option value="Estudios">Estudios</option>
+                                        <option value="Entretenimiento">Entretenimiento</option>
+                                    </select>
+                                </div>
+
+                                <table>
+
+                                    <thead>
+
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Tipo</th>
+                                            <th>Tipo gasto</th>
+                                            <th>Valor</th>
+                                            <th>Frecuencia</th>
+                                            <th>Observación</th>
+                                        </tr>
+
+                                    </thead>
+                                    <tbody id="cuerpoTabla">
+                                    </tbody>
+                                </table>
+                            </section>
+                        </section>
+
+                        <!-- ========================= -->
+                        <!-- ESTADISTICAS -->
+                        <!-- ========================= -->
+
+                        <section id="estadisticas" class="seccion">
+                            <section class="card-general">
+
+                                <h2>📈 Estadísticas</h2>
+                                <div class="cards">
+
+                                    <div class="card" id="media">
+                                        Media: --
+                                    </div>
+
+                                    <div class="card" id="mediana">
+                                        Mediana: --
+                                    </div>
+
+                                    <div class="card" id="moda">
+                                        Moda: --
+                                    </div>
+
+                                    <div class="card" id="maximo">
+                                        Máximo: --
+                                    </div>
+
+                                    <div class="card" id="minimo">
+                                        Mínimo: --
+                                    </div>
+
+                                    <div class="card" id="rango">
+                                        Rango: --
+                                    </div>
+                                    <div class="card" id="varianza">
+                                        Varianza: --
+                                    </div>
+
+                                    <div class="card" id="desviacion">
+                                        Desv. estándar: --
+                                    </div>
+                                    <p id="mensajeTecla">Presiona la tecla H para ver las explicaciones.</p>
+                                    <div id="ayuda" class="ayuda oculto">
+
+                                        <h3>Explicación rápida</h3>
+
+                                        <p><strong>Media:</strong> suma de todos los datos ÷ cantidad de datos.</p>
+                                        <p><strong>Mediana:</strong> valor que queda en el centro al ordenar los datos.</p>
+                                        <p><strong>Moda:</strong> número que más se repite.</p>
+                                        <p><strong>Máximo:</strong> valor más grande.</p>
+                                        <p><strong>Mínimo:</strong> valor más pequeño.</p>
+                                        <p><strong>Rango:</strong> máximo - mínimo.</p>
+                                        <p><strong>Varianza:</strong> mide qué tan separados están los datos.</p>
+                                        <p><strong>Desviación estándar:</strong> indica cuánto se alejan los datos de la media.</p>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+
+                        <!-- ========================= -->
+                        <!-- GRAFICAS -->
+                        <!-- ========================= -->
+
+                        <section id="graficas" class="seccion">
+
+                            <label for="tipoGrafica">
+                                Tipo de gráfica
                             </label>
 
-                            <select id="filtroTipoGasto">
+                            <select id="tipoGrafica">
 
-                                <option value="Todos">Todos</option>
-                                <option value="Ropa">Ropa</option>
-                                <option value="Comida">Comida</option>
-                                <option value="Transporte">Transporte</option>
-                                <option value="Estudios">Estudios</option>
-                                <option value="Entretenimiento">Entretenimiento</option>
+                                <option value="bar">
+                                    Barras
+                                </option>
 
+                                <option value="line">
+                                    Línea
+                                </option>
+
+                                <option value="pie">
+                                    Circular
+                                </option>
                             </select>
+                            
+                            <canvas id="miGrafica"></canvas>
+                        </section>
 
-                        </div>
+                        <section id="teoria" class="seccion oculto">
+                            <h2>Teoría Estadística</h2>
+                            <p>Contenido de la teoría estadística...</p>
+                        </section>
 
-                        <table>
+                        <section id="quiz" class="seccion oculto">
+                            <h2>Quiz</h2>
+                            <p>Contenido del quiz...</p>
+                        </section>
 
-                            <thead>
+                        <!-- ========================= -->
+                        <!-- FOOTER -->
+                        <!-- ========================= -->
 
-                                <tr>
+                        <footer>
 
-                                    <th>Fecha</th>
-                                    <th>Tipo</th>
-                                    <th>Tipo gasto</th>
-                                    <th>Valor</th>
-                                    <th>Frecuencia</th>
-                                    <th>Observación</th>
+                            <div class="footer-contenido">
 
-                                </tr>
+                                <h3>
+                                    📊 Control Estadístico del Hogar
+                                </h3>
 
-                            </thead>
+                                <p>
+                                    Sistema de registro y análisis
+                                    de consumos del hogar.
+                                </p>
 
-                            <tbody id="cuerpoTabla">
+                                <div class="footer-links">
 
-                            </tbody>
+                                    <a href="#">
+                                        Inicio
+                                    </a>
 
-                        </table>
+                                    <a href="#">
+                                        Historial
+                                    </a>
 
-                    </section>
+                                    <a href="#">
+                                        Estadísticas
+                                    </a>
 
-                </section>
+                                    <a href="#">
+                                        Gráficas
+                                    </a>
 
-                <!-- ========================= -->
-                <!-- ESTADISTICAS -->
-                <!-- ========================= -->
+                                </div>
 
-                <section id="estadisticas" class="seccion">
-
-                    <section class="card-general">
-
-                        <h2>📈 Estadísticas</h2>
-
-                        <div class="cards">
-
-                            <div class="card" id="media">
-                                Media: --
-                            </div>
-
-                            <div class="card" id="mediana">
-                                Mediana: --
-                            </div>
-
-                            <div class="card" id="moda">
-                                Moda: --
-                            </div>
-
-                            <div class="card" id="maximo">
-                                Máximo: --
-                            </div>
-
-                            <div class="card" id="minimo">
-                                Mínimo: --
-                            </div>
-
-                            <div class="card" id="rango">
-                                Rango: --
-                            </div>
-                            <div class="card" id="varianza">
-                                Varianza: --
-                            </div>
-
-                            <div class="card" id="desviacion">
-                                Desv. estándar: --
-                            </div>
-                            <p id="mensajeTecla">Presiona la tecla H para ver las explicaciones.</p>
-                            <div id="ayuda" class="ayuda oculto">
-
-                                <h3>Explicación rápida</h3>
-
-                                <p><strong>Media:</strong> suma de todos los datos ÷ cantidad de datos.</p>
-
-                                <p><strong>Mediana:</strong> valor que queda en el centro al ordenar los datos.</p>
-
-                                <p><strong>Moda:</strong> número que más se repite.</p>
-
-                                <p><strong>Máximo:</strong> valor más grande.</p>
-
-                                <p><strong>Mínimo:</strong> valor más pequeño.</p>
-
-                                <p><strong>Rango:</strong> máximo - mínimo.</p>
-
-                                <p><strong>Varianza:</strong> mide qué tan separados están los datos.</p>
-
-                                <p><strong>Desviación estándar:</strong> indica cuánto se alejan los datos de la media.</p>
+                                <p class="copy">
+                                    &copy; 2026 - Todos los derechos reservados
+                                </p>
 
                             </div>
 
-                        </div>
+                        </footer>
 
-                    </section>
+                    </main>
 
-                </section>
+                </div>
 
-                <!-- ========================= -->
-                <!-- GRAFICAS -->
-                <!-- ========================= -->
+            </div>
 
-                <section id="graficas" class="seccion">
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="assets/js/index.js"></script>
 
-                    <label for="tipoGrafica">
-                        Tipo de gráfica
-                    </label>
-
-                    <select id="tipoGrafica">
-
-                        <option value="bar">
-                            Barras
-                        </option>
-
-                        <option value="line">
-                            Línea
-                        </option>
-
-                        <option value="pie">
-                            Circular
-                        </option>
-
-                    </select>
-                    
-                    <canvas id="miGrafica"></canvas>
-
-                </section>
-
-                <section id="teoria" class="seccion oculto">
-                    <h2>Teoría Estadística</h2>
-                    <p>Contenido de la teoría estadística...</p>
-                </section>
-
-                <section id="quiz" class="seccion oculto">
-                    <h2>Quiz</h2>
-                    <p>Contenido del quiz...</p>
-                </section>
-
-                <!-- ========================= -->
-                <!-- FOOTER -->
-                <!-- ========================= -->
-
-                <footer>
-
-                    <div class="footer-contenido">
-
-                        <h3>
-                            📊 Control Estadístico del Hogar
-                        </h3>
-
-                        <p>
-                            Sistema de registro y análisis
-                            de consumos del hogar.
-                        </p>
-
-                        <div class="footer-links">
-
-                            <a href="#">
-                                Inicio
-                            </a>
-
-                            <a href="#">
-                                Historial
-                            </a>
-
-                            <a href="#">
-                                Estadísticas
-                            </a>
-
-                            <a href="#">
-                                Gráficas
-                            </a>
-
-                        </div>
-
-                        <p class="copy">
-                            &copy; 2026 - Todos los derechos reservados
-                        </p>
-
-                    </div>
-
-                </footer>
-
-            </main>
-
-        </div>
-
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="assets/js/index.js"></script>
-
-</body>
+        </body>
 </html>
