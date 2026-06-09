@@ -2,6 +2,34 @@
 // CAPTURAR ELEMENTOS DEL HTML
 // =============================
 
+
+const ayuda = document.getElementById("ayuda");//recuperamos el elemento con id "ayuda"
+const mensaje = document.getElementById("mensajeTecla");//recuperamos el elemento con id "mensajeTecla"
+
+// SI presiona H, mostrar ayuda
+document.addEventListener("keydown", (e) => {
+
+    if(e.key.toLowerCase() === "h"){
+
+        ayuda.classList.toggle("oculto");
+
+        // Verificar si está visible
+        if(ayuda.classList.contains("oculto")){
+
+            mensaje.textContent = 
+            "Presiona la tecla H para ver las explicaciones.";//cambiamos el texto del elemento mensaje dependiendo de si la ayuda está oculta o visible
+
+        }else{
+
+            mensaje.textContent = 
+            "Presiona la tecla H para ocultar las explicaciones.";//cambiamos el texto del elemento mensaje dependiendo de si la ayuda está oculta o visible
+
+        }
+
+    }
+
+});
+
 // Select principal
 const tipo = document.getElementById("tipo");
 
@@ -29,7 +57,274 @@ const tablaCuerpo = document.getElementById("cuerpoTabla");
 // VARIABLES GLOBALES
 // =============================
 
-let registros = [];
+// =============================
+// DATOS DE PRUEBA
+// =============================
+
+registros = [
+
+    {
+        fecha: "2026-01-02",
+        tipo: "Luz",
+        valor: 32.50,
+        frecuencia: "Mensual",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-01-10",
+        tipo: "Agua",
+        valor: 18.75,
+        frecuencia: "Mensual",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-01-15",
+        tipo: "Internet",
+        valor: 25.00,
+        frecuencia: "Mensual",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-01-18",
+        tipo: "Gastos personales",
+        tipoGasto: "Comida",
+        valor: 12.50,
+        frecuencia: "Diario",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-01-20",
+        tipo: "Gastos personales",
+        tipoGasto: "Ropa",
+        valor: 45.00,
+        frecuencia: "Mensual",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-01-22",
+        tipo: "Gastos personales",
+        tipoGasto: "Transporte",
+        valor: 8.00,
+        frecuencia: "Semanal",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-01-25",
+        tipo: "Gastos personales",
+        tipoGasto: "Estudios",
+        valor: 30.00,
+        frecuencia: "Mensual",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-01-28",
+        tipo: "Gastos personales",
+        tipoGasto: "Entretenimiento",
+        valor: 20.00,
+        frecuencia: "Mensual",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-02-01",
+        tipo: "Luz",
+        valor: 35.20,
+        frecuencia: "Mensual",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-02-03",
+        tipo: "Agua",
+        valor: 20.10,
+        frecuencia: "Mensual",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-02-05",
+        tipo: "Internet",
+        valor: 25.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo igual al anterior"
+    },
+
+    {
+        fecha: "2026-02-07",
+        tipo: "Gastos personales",
+        tipoGasto: "Comida",
+        valor: 15.00,
+        frecuencia: "Diario",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-02-10",
+        tipo: "Gastos personales",
+        tipoGasto: "Ropa",
+        valor: 60.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo elevado, revisar"
+    },
+
+    {
+        fecha: "2026-02-12",
+        tipo: "Gastos personales",
+        tipoGasto: "Transporte",
+        valor: 10.00,
+        frecuencia: "Semanal",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-02-14",
+        tipo: "Gastos personales",
+        tipoGasto: "Estudios",
+        valor: 28.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo reducido"
+    },
+
+    {
+        fecha: "2026-02-16",
+        tipo: "Gastos personales",
+        tipoGasto: "Entretenimiento",
+        valor: 35.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo elevado, revisar"
+    },
+
+    {
+        fecha: "2026-03-01",
+        tipo: "Luz",
+        valor: 40.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-03-03",
+        tipo: "Agua",
+        valor: 16.50,
+        frecuencia: "Mensual",
+        observacion: "Consumo reducido"
+    },
+
+    {
+        fecha: "2026-03-05",
+        tipo: "Internet",
+        valor: 27.50,
+        frecuencia: "Mensual",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-03-08",
+        tipo: "Gastos personales",
+        tipoGasto: "Comida",
+        valor: 18.00,
+        frecuencia: "Diario",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-03-10",
+        tipo: "Gastos personales",
+        tipoGasto: "Ropa",
+        valor: 38.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo reducido"
+    },
+
+    {
+        fecha: "2026-03-12",
+        tipo: "Gastos personales",
+        tipoGasto: "Transporte",
+        valor: 12.00,
+        frecuencia: "Semanal",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-03-15",
+        tipo: "Gastos personales",
+        tipoGasto: "Estudios",
+        valor: 40.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo elevado, revisar"
+    },
+
+    {
+        fecha: "2026-03-18",
+        tipo: "Gastos personales",
+        tipoGasto: "Entretenimiento",
+        valor: 22.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo reducido"
+    },
+
+    {
+        fecha: "2026-04-01",
+        tipo: "Luz",
+        valor: 37.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo reducido"
+    },
+
+    {
+        fecha: "2026-04-03",
+        tipo: "Agua",
+        valor: 22.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-04-05",
+        tipo: "Internet",
+        valor: 30.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-04-08",
+        tipo: "Gastos personales",
+        tipoGasto: "Comida",
+        valor: 14.00,
+        frecuencia: "Diario",
+        observacion: "Consumo reducido"
+    },
+
+    {
+        fecha: "2026-04-10",
+        tipo: "Gastos personales",
+        tipoGasto: "Transporte",
+        valor: 9.50,
+        frecuencia: "Semanal",
+        observacion: "Consumo reducido"
+    },
+
+    {
+        fecha: "2026-04-15",
+        tipo: "Gastos personales",
+        tipoGasto: "Entretenimiento",
+        valor: 40.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo elevado, revisar"
+    }
+
+];
+
+calcularEstadisticas();
+pintarTabla();
 let frecuencia = "Mensual";
 
 // =============================

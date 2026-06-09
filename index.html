@@ -37,6 +37,14 @@
                     📊 Gráficas
                 </button>
 
+                <button class="btnMenu" onclick="mostrarSeccion('teoria')">
+                    teoria
+                </button>
+
+                <button class="btnMenu" onclick="mostrarSeccion('quiz')">
+                    quiz
+                </button>
+
             </aside>
 
             <!-- ========================= -->
@@ -60,9 +68,7 @@
                         </p>
 
                     </header>
-
                     <section class="card-general">
-
                         <h2>Registrar consumo</h2>
 
                         <label for="fecha">Fecha</label>
@@ -71,7 +77,6 @@
                         <label for="tipo">Tipo de consumo</label>
 
                         <select id="tipo">
-
                             <option>Luz</option>
                             <option>Agua</option>
                             <option>Internet</option>
@@ -80,7 +85,6 @@
                         </select>
 
                         <!-- TIPO GASTO -->
-
                         <div id="contenedorTipoGasto" style="display:none;">
 
                             <label for="tipoGasto">
@@ -88,13 +92,11 @@
                             </label>
 
                             <select id="tipoGasto">
-
                                 <option>Ropa</option>
                                 <option>Comida</option>
                                 <option>Transporte</option>
                                 <option>Estudios</option>
                                 <option>Entretenimiento</option>
-
                             </select>
 
                         </div>
@@ -249,6 +251,28 @@
                             <div class="card" id="desviacion">
                                 Desv. estándar: --
                             </div>
+                            <p id="mensajeTecla">Presiona la tecla H para ver las explicaciones.</p>
+                            <div id="ayuda" class="ayuda oculto">
+
+                                <h3>Explicación rápida</h3>
+
+                                <p><strong>Media:</strong> suma de todos los datos ÷ cantidad de datos.</p>
+
+                                <p><strong>Mediana:</strong> valor que queda en el centro al ordenar los datos.</p>
+
+                                <p><strong>Moda:</strong> número que más se repite.</p>
+
+                                <p><strong>Máximo:</strong> valor más grande.</p>
+
+                                <p><strong>Mínimo:</strong> valor más pequeño.</p>
+
+                                <p><strong>Rango:</strong> máximo - mínimo.</p>
+
+                                <p><strong>Varianza:</strong> mide qué tan separados están los datos.</p>
+
+                                <p><strong>Desviación estándar:</strong> indica cuánto se alejan los datos de la media.</p>
+
+                            </div>
 
                         </div>
 
@@ -284,6 +308,16 @@
                     
                     <canvas id="miGrafica"></canvas>
 
+                </section>
+
+                <section id="teoria" class="seccion oculto">
+                    <h2>Teoría Estadística</h2>
+                    <p>Contenido de la teoría estadística...</p>
+                </section>
+
+                <section id="quiz" class="seccion oculto">
+                    <h2>Quiz</h2>
+                    <p>Contenido del quiz...</p>
                 </section>
 
                 <!-- ========================= -->
