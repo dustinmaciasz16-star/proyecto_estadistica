@@ -52,11 +52,6 @@ const btnGuardar = document.getElementById("btnGuardar");
 // Cuerpo tabla
 const tablaCuerpo = document.getElementById("cuerpoTabla");
 
-
-// =============================
-// VARIABLES GLOBALES
-// =============================
-
 // =============================
 // DATOS DE PRUEBA
 // =============================
@@ -327,6 +322,35 @@ calcularEstadisticas();
 pintarTabla();
 let frecuencia = "Mensual";
 
+// Obtener registros filtrados
+function obtenerRegistrosFiltrados(){
+
+    let tipoFiltro = filtroTipo.value;
+    let tipoGastoFiltro = filtroTipoGasto.value;
+
+    return registros.filter(function(registro){
+
+        if(tipoFiltro === "Todos"){
+            return true;
+        }
+
+        if(registro.tipo !== tipoFiltro){
+            return false;
+        }
+
+        if(
+            tipoFiltro === "Gastos personales" &&
+            tipoGastoFiltro !== "Todos"
+        ){
+            return registro.tipoGasto === tipoGastoFiltro;
+        }
+
+        return true;
+
+    });
+
+}
+
 // =============================
 // MOSTRAR SECCIÓN
 // =============================
@@ -391,6 +415,7 @@ function agregarGasto() {
 
     calcularEstadisticas();
     pintarTabla();
+    generarGrafica();
     limpiarFormulario();
 }
 
@@ -542,10 +567,6 @@ function generarObservacion(tipo, valor, tipoGasto = null) {
         return "Consumo bajó considerablemente";
     }
 }
-
-// =============================
-// CALCULAR ESTADÍSTICAS
-// =============================
 
 // =============================
 // CALCULAR ESTADÍSTICAS
@@ -773,7 +794,6 @@ btnGuardar.addEventListener(
     agregarGasto
 );
 
-
 // =============================
 // FILTROS TABLA
 // =============================
@@ -781,16 +801,26 @@ btnGuardar.addEventListener(
 filtroTipo.addEventListener(
     "change",
     function(){
+
         pintarTabla();
+
         calcularEstadisticas();
+
+        generarGrafica();
+
     }
 );
 
 filtroTipoGasto.addEventListener(
     "change",
     function(){
+
         pintarTabla();
+
         calcularEstadisticas();
+
+        generarGrafica();
+
     }
 );
 
@@ -839,4 +869,8 @@ mostrarOcultar(
     ["Gastos personales"],
     contenedorFiltroGasto
 );
+calcularEstadisticas();
+
 pintarTabla();
+
+generarGrafica();
