@@ -249,9 +249,16 @@
                             <div class="card" id="varianza">
                                 Varianza: --
                             </div>
-
                             <div class="card" id="desviacion">
                                 Desv. estándar: --
+                            </div>
+
+                            <div class="card" id="mayorCategoria">
+                                Mayor gasto: --
+                            </div>
+
+                            <div class="card" id="porcentajes">
+                                Porcentajes: --
                             </div>
                             <p id="mensajeTecla">Presiona la tecla H para ver las explicaciones.</p>
                             <div id="ayuda" class="ayuda oculto">
@@ -300,26 +307,24 @@
                         <label for="tipoGrafica">
                             Tipo de gráfica
                         </label>
+                        <button onclick="mostrarEstadisticasEnGrafica()">
+                            Ver gráfica de estadísticas
+                        </button>
 
                         <select id="tipoGrafica">
 
-                            <option value="bar">
-                                Barras
-                            </option>
+                            <option value="bar">Barras</option>
 
-                            <option value="line">
-                                Línea
-                            </option>
+                            <option value="line">Línea</option>
 
-                            <option value="pie">
-                                Circular
-                            </option>
+                            <option value="pie">Circular</option>
 
                         </select>
 
                         <div style="height:500px">
 
-                            <canvas id="miGrafica"></canvas>
+                            <canvas id="miGrafica" style="display:block;"></canvas>
+                            <canvas id="miGraficaEstadisticas" style="display:none;"></canvas>
 
                         </div>
 

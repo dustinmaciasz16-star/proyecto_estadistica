@@ -56,7 +56,7 @@ const tablaCuerpo = document.getElementById("cuerpoTabla");
 // DATOS DE PRUEBA
 // =============================
 
-registros = [
+let registros = [
 
     {
         fecha: "2026-01-02",
@@ -314,6 +314,29 @@ registros = [
         valor: 40.00,
         frecuencia: "Mensual",
         observacion: "Consumo elevado, revisar"
+    },
+    {
+        fecha: "2026-01-12",
+        tipo: "Consumo de Gas",
+        valor: 15.00,
+        frecuencia: "Mensual",
+        observacion: "Primer registro"
+    },
+
+    {
+        fecha: "2026-02-12",
+        tipo: "Consumo de Gas",
+        valor: 18.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo ligeramente elevado"
+    },
+
+    {
+        fecha: "2026-03-12",
+        tipo: "Consumo de Gas",
+        valor: 16.00,
+        frecuencia: "Mensual",
+        observacion: "Consumo reducido"
     }
 
 ];
@@ -365,6 +388,13 @@ function mostrarSeccion(id){
 
     document.getElementById(id).classList.add("activa");
 
+    if(id === "estadisticas"){
+        calcularEstadisticas();
+    }
+
+    if(id === "graficas"){
+        generarGrafica();
+    }
 }
 
 // =============================
@@ -568,6 +598,26 @@ function generarObservacion(tipo, valor, tipoGasto = null) {
     }
 }
 
+
+function mostrarEstadisticasEnGrafica() {
+
+    document.getElementById("miGrafica").style.display = "none";
+    document.getElementById("miGraficaEstadisticas").style.display = "block";
+
+    calcularEstadisticas();
+
+    // 👇 AQUÍ FALTA ESTO
+    generarGraficaEstadisticas(
+        parseFloat(document.getElementById("media").textContent.split(":")[1]),
+        parseFloat(document.getElementById("mediana").textContent.split(":")[1]),
+        parseFloat(document.getElementById("moda").textContent.split(":")[1]),
+        parseFloat(document.getElementById("maximo").textContent.split(":")[1]),
+        parseFloat(document.getElementById("minimo").textContent.split(":")[1]),
+        parseFloat(document.getElementById("varianza").textContent.split(":")[1]),
+        parseFloat(document.getElementById("desviacion").textContent.split(":")[1])
+    );
+}
+
 // =============================
 // CALCULAR ESTADÍSTICAS
 // SEGÚN FILTRO
@@ -681,7 +731,7 @@ function calcularEstadisticas() {
             maxFrecuencia =
                 contador[numero];
 
-            moda = numero;
+            moda = Number(numero);
         }
     }
 
@@ -724,6 +774,54 @@ function calcularEstadisticas() {
 
     let desviacion =
         Math.sqrt(varianza);
+
+    
+    // ======================
+    // MAYOR CATEGORÍA
+    // ======================
+
+    let categorias = {};
+
+    registrosFiltrados.forEach(registro => {
+
+        if (!categorias[registro.tipo]) {
+            categorias[registro.tipo] = 0;
+        }
+
+        categorias[registro.tipo] += registro.valor;
+    });
+
+    let mayorCategoria = "";
+    let mayorValor = 0;
+
+    for (let cat in categorias) {
+        if (categorias[cat] > mayorValor) {
+            mayorValor = categorias[cat];
+            mayorCategoria = cat;
+        }
+    }
+
+    document.getElementById("mayorCategoria").textContent =
+        "Mayor gasto: " + mayorCategoria + " ($" + mayorValor.toFixed(2) + ")";
+
+    // ======================
+    // PORCENTAJES
+    // ======================
+
+    let total = valores.reduce((a, b) => a + b, 0);
+
+    let porcentajes = "";
+
+    for (let cat in categorias) {
+
+        let porcentaje = (categorias[cat] / total) * 100;
+
+        porcentajes +=
+            cat + ": " + porcentaje.toFixed(1) + "% | ";
+    }
+
+    document.getElementById("porcentajes").textContent =
+        "Porcentajes: " + porcentajes;
 
     // ======================
     // MOSTRAR
