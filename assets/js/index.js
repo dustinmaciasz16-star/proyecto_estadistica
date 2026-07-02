@@ -51,6 +51,12 @@ const btnGuardar = document.getElementById("btnGuardar");
 
 // Cuerpo tabla
 const tablaCuerpo = document.getElementById("cuerpoTabla");
+const tablaCuerpoForm = document.getElementById("tablaFormulario");
+
+
+const filtroTipoGrafica = document.getElementById("filtroTipoGrafica");
+const filtroTipoGastoGrafica = document.getElementById("filtroTipoGastoGrafica");
+const contenedorFiltroGastoGrafica = document.getElementById("contenedorFiltroGastoGrafica");
 
 // =============================
 // DATOS DE PRUEBA
@@ -445,8 +451,25 @@ function agregarGasto() {
 
     calcularEstadisticas();
     pintarTabla();
+    pintarTablaFormulario(registro);
     generarGrafica();
     limpiarFormulario();
+}
+
+function pintarTablaFormulario(registro){
+
+    let fila =
+        "<tr>" +
+            "<td>" + registro.fecha + "</td>" +
+            "<td>" + registro.tipo + "</td>" +
+            "<td>" + (registro.tipoGasto ? registro.tipoGasto : "-") + "</td>" +
+            "<td>$" + registro.valor.toFixed(2) + "</td>" +
+            "<td>" + registro.frecuencia + "</td>" +
+            "<td>" + registro.observacion + "</td>" +
+        "</tr>";
+
+    tablaCuerpoForm.innerHTML += fila;
+
 }
 
 
@@ -494,6 +517,9 @@ function pintarTabla() {
                 "<td>$" + registro.valor.toFixed(2) + "</td>" +
                 "<td>" + registro.frecuencia + "</td>" +
                 "<td>" + registro.observacion + "</td>" +
+                "<td>" +
+                    "<button class='btn btn-editar' onclick='editarRegistro(" + registros.indexOf(registro) + ")'>Editar</button>" +
+                "</td>" +
             "</tr>";
 
         tablaCuerpo.innerHTML += fila;
@@ -516,6 +542,35 @@ tipo.addEventListener("change", function () {
     }
 
 });
+
+function editarRegistro(indice){
+
+    let nuevoValor = prompt(
+        "Ingrese el nuevo valor:",
+        registros[indice].valor
+    );
+
+    if(nuevoValor === null){
+        return;
+    }
+
+    let nuevaObservacion = prompt(
+        "Ingrese la nueva observación:",
+        registros[indice].observacion
+    );
+
+    if(nuevaObservacion === null){
+        return;
+    }
+
+    registros[indice].valor = parseFloat(nuevoValor);
+    registros[indice].observacion = nuevaObservacion;
+
+    pintarTabla();
+    calcularEstadisticas();
+    generarGrafica();
+
+}
 
 
 // =============================
@@ -947,6 +1002,12 @@ activarMostrarOcultar(
     contenedorFrecuencia
 );
 
+activarMostrarOcultar(
+    filtroTipoGrafica,
+    ["Gastos personales"],
+    contenedorFiltroGastoGrafica
+);
+
 
 // =============================
 // ESTADO INICIAL
@@ -966,6 +1027,12 @@ mostrarOcultar(
     filtroTipo,
     ["Gastos personales"],
     contenedorFiltroGasto
+);
+
+mostrarOcultar(
+    filtroTipoGrafica,
+    ["Gastos personales"],
+    contenedorFiltroGastoGrafica
 );
 calcularEstadisticas();
 

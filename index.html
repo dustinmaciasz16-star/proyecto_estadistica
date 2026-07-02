@@ -131,7 +131,23 @@
                         <button id="btnGuardar">
                             Guardar registro
                         </button>
-
+                        <section>
+                            <h3>Registros agregados</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Tipo</th>
+                                        <th>Tipo gasto</th>
+                                        <th>Valor</th>
+                                        <th>Frecuencia</th>
+                                        <th>Observación</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tablaFormulario">
+                                </tbody>
+                            </table>
+                        </section>
                     </section>
 
                 </section>
@@ -196,7 +212,7 @@
                                     <th>Valor</th>
                                     <th>Frecuencia</th>
                                     <th>Observación</th>
-
+                                    <th>Acciones</th>
                                 </tr>
 
                             </thead>
@@ -304,27 +320,75 @@
                             que se encuentran filtrados en el historial.
                         </p>
 
-                        <label for="tipoGrafica">
-                            Tipo de gráfica
-                        </label>
-                        <button onclick="mostrarEstadisticasEnGrafica()">
-                            Ver gráfica de estadísticas
-                        </button>
+<!-- ========================= -->
+<!-- FILTROS -->
+<!-- ========================= -->
 
-                        <select id="tipoGrafica">
+<label for="filtroTipoGrafica">
+    Tipo
+</label>
 
-                            <option value="bar">Barras</option>
+<select id="filtroTipoGrafica">
 
-                            <option value="line">Línea</option>
+    <option value="Todos">Todos</option>
+    <option value="Luz">Luz</option>
+    <option value="Agua">Agua</option>
+    <option value="Internet">Internet</option>
+    <option value="Consumo de Gas">Consumo de Gas</option>
+    <option value="Gastos personales">
+        Gastos personales
+    </option>
 
-                            <option value="pie">Circular</option>
+</select>
 
-                        </select>
+<div id="contenedorFiltroGastoGrafica" style="display:none;">
+
+    <label for="filtroTipoGastoGrafica">
+        Tipo de gasto
+    </label>
+
+    <select id="filtroTipoGastoGrafica">
+
+        <option value="Todos">Todos</option>
+        <option value="Ropa">Ropa</option>
+        <option value="Comida">Comida</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Estudios">Estudios</option>
+        <option value="Entretenimiento">Entretenimiento</option>
+
+    </select>
+
+</div>
+
+<br>
+
+<!-- ========================= -->
+<!-- TIPO DE GRÁFICA -->
+<!-- ========================= -->
+
+<label for="tipoGrafica">
+    Tipo de gráfica
+</label>
+
+<select id="tipoGrafica">
+
+    <option value="bar">Barras</option>
+    <option value="line">Línea</option>
+    <option value="pie">Circular</option>
+
+</select>
+
+<button onclick="mostrarEstadisticasEnGrafica()">
+    Ver gráfica de estadísticas
+</button>
+
+
 
                         <div style="height:500px">
 
-                            <canvas id="miGrafica" style="display:block;"></canvas>
-                            <canvas id="miGraficaEstadisticas" style="display:none;"></canvas>
+<canvas id="miGrafica"></canvas>
+
+<canvas id="miGraficaEstadisticas" style="display:none;"></canvas>
 
                         </div>
 
